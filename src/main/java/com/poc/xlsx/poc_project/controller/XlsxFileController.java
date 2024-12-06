@@ -34,7 +34,7 @@ public class XlsxFileController {
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             if (file.isEmpty() || !Objects.requireNonNull(file.getOriginalFilename()).endsWith(".xlsx")) {
-                return ResponseEntity.badRequest().body("Invalid file. Only .xlsx files are allowed.");
+                return ResponseEntity.badRequest().body("Invalid file or file is empty. Only .xlsx files are allowed.");
             }
             Path uploadPath = Paths.get(BASE_DIRECTORY);
             if (!Files.exists(uploadPath)) {

@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.stereotype.Service;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -56,7 +55,7 @@ public class FileProcessingService {
         try (Workbook workbook = WorkbookFactory.create(Files.newInputStream(filePath))) {
             Sheet sheet = workbook.getSheet(sheetName);
             if (sheet == null) {
-                throw new FileNotFoundException("Sheet with name " + sheetName + " was not found.");
+                throw new SheetNotFoundException("Sheet with name " + sheetName + " was not found.");
             }
             // Read the header row
             Row headerRow = sheet.getRow(startRow);
