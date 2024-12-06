@@ -77,7 +77,7 @@ public class FileProcessingService {
 
                     // Ensure headers and data cells exist
                     if (cell != null && headerCell != null) {
-                        String header = getStringCellValue(headerCell);
+                        String header = getStringCellValue(headerCell).replace(" ", "");
                         String value = getStringCellValue(cell);
                         rowData.put(header, value);
                     }
