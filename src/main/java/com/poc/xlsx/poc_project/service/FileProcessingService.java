@@ -1,7 +1,6 @@
 package com.poc.xlsx.poc_project.service;
 
 import com.poc.xlsx.poc_project.exception.MissingHeaderException;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.*;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Slf4j
 public class FileProcessingService {
-
     public List<String> getSheetNames(Path filePath) throws IOException {
         List<String> sheetNames = new ArrayList<>();
         try (Workbook workbook = WorkbookFactory.create(Files.newInputStream(filePath))) {
